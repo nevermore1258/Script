@@ -130,14 +130,6 @@ wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/nevermore1258/
 sed -i $MYIP2 /etc/squid3/squid.conf;
 service squid3 restart
 
-# install webmin
-cd
-wget https://raw.githubusercontent.com/nevermore1258/Script/master/webmin_1.831_all.deb
-dpkg --install webmin_1.831_all.deb
-sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
-rm -f webmin_1.831_all.deb
-/usr/share/webmin/changepass.pl /etc/webmin root tao
-service webmin restart
 
 # download script
 cd /usr/bin
@@ -154,7 +146,7 @@ wget -O info "https://raw.githubusercontent.com/nevermore1258/Menu/master/info.s
 wget -O about "https://raw.githubusercontent.com/nevermore1258/Menu/master/about.sh"
 wget -O online "https://raw.githubusercontent.com/nevermore1258/Menu/master/online.sh"
 wget -O auto-reboot "https://raw.githubusercontent.com/nevermore1258/Menu/master/auto-reboot.sh"
-wget -O limit "https://raw.githubusercontent.com/nevermore1258/Menu/master/limit.sh"
+wget -O ban "https://raw.githubusercontent.com/nevermore1258/Menu/master/ban.sh"
 
 echo "0 0 * * * root /sbin/reboot" > /etc/cron.d/reboot
 
@@ -171,7 +163,7 @@ chmod +x info
 chmod +x about
 chmod +x online
 chmod +x auto-reboot
-chmod +x limit
+chmod +x ban
 
 # finishing
 cd
@@ -197,32 +189,12 @@ echo "OpenSSH  : 22, 143"  | tee -a log-install.txt
 echo "Dropbear : 80, 443"  | tee -a log-install.txt
 echo "Squid3   : 8080, 3128 (limit to IP SSH)"  | tee -a log-install.txt
 echo "OpenVPN  : TCP 1194 (client config : http://$MYIP:81/client.ovpn)"  | tee -a log-install.txt
+echo "Vnstat   : http://$MYIP:81/vnstat"
 echo "badvpn   : badvpn-udpgw port 7300"  | tee -a log-install.txt
 echo "nginx    : 81"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Script"  | tee -a log-install.txt
 echo "------"  | tee -a log-install.txt
-echo "menu (show list of menu)"  | tee -a log-install.txt
-echo "add (Add New User SSH  1 Session)"  | tee -a log-install.txt
-echo "addmulti (Add New User SSH  20 Session)"  | tee -a log-install.txt
-echo "trial (Add Trial Accoint)"  | tee -a log-install.txt
-echo "del (delete user SSH & OpenVPN)"  | tee -a log-install.txt
-echo "view (View User Login)"  | tee -a log-install.txt
-echo "acc (View All User SSH)"  | tee -a log-install.txt
-echo "online (View All User Online SSH)"  | tee -a log-install.txt
-echo "restart (Restart Service dropbear, webmin, squid3, openvpn dan ssh)"  | tee -a log-install.txt
-echo "auto-reboot (Set Reboot VPS)"  | tee -a log-install.txt
-echo "speedtest (Speedtest VPS)"  | tee -a log-install.txt
-echo "info (info this system)"  | tee -a log-install.txt
-echo "about (info this script auto install)"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "Other features"  | tee -a log-install.txt
-echo "----------"  | tee -a log-install.txt
-echo "Webmin   : http://$MYIP:10000/"  | tee -a log-install.txt
-echo "Timezone : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
-echo "IPv6     : [off]"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-
 echo "Log of installer --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "==========================================="  | tee -a log-install.txt
