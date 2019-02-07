@@ -110,19 +110,6 @@ vnstat -u -i eth0
 sudo chown -R vnstat:vnstat /var/lib/vnstat
 
 
-# Install Vnstat GUI
-cd /home/vps/public_html/
-wget http://www.sqweek.com/sqweek/files/vnstat_php_frontend-1.5.1.tar.gz
-tar xf vnstat_php_frontend-1.5.1.tar.gz
-rm vnstat_php_frontend-1.5.1.tar.gz
-mv vnstat_php_frontend-1.5.1 vnstat
-cd vnstat
-sed -i "s/\$iface_list = array('eth0', 'sixxs');/\$iface_list = array('eth0');/g" config.php
-sed -i "s/\$language = 'nl';/\$language = 'en';/g" config.php
-sed -i 's/Internal/Internet/g' config.php
-sed -i '/SixXS IPv6/d' config.php
-cd
-
 # install squid3
 cd
 apt-get -y install squid3
@@ -134,18 +121,15 @@ service squid3 restart
 # download script
 cd /usr/bin
 wget -O menu "https://raw.githubusercontent.com/nevermore1258/Menu/master/menu.sh"
-wget -O add "https://raw.githubusercontent.com/nevermore1258/Menu/master/add.sh"
-wget -O addmulti "https://raw.githubusercontent.com/nevermore1258/Menu/master/addmulti.sh"
-wget -O trial "https://raw.githubusercontent.com/nevermore1258/Menu/master/trial.sh"
-wget -O del "https://raw.githubusercontent.com/nevermore1258/Menu/master/del.sh"
+wget -O 1 "https://raw.githubusercontent.com/nevermore1258/Menu/master/add.sh"
+wget -O 2 "https://raw.githubusercontent.com/nevermore1258/Menu/master/del.sh"
 wget -O view "https://raw.githubusercontent.com/nevermore1258/Menu/master/view.sh"
-wget -O acc "https://raw.githubusercontent.com/nevermore1258/Menu/master/acc.sh"
-wget -O restart "https://raw.githubusercontent.com/nevermore1258/Menu/master/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/nevermore1258/Menu/master/speedtest.py"
-wget -O info "https://raw.githubusercontent.com/nevermore1258/Menu/master/info.sh"
-wget -O about "https://raw.githubusercontent.com/nevermore1258/Menu/master/about.sh"
-wget -O online "https://raw.githubusercontent.com/nevermore1258/Menu/master/online.sh"
-wget -O auto-reboot "https://raw.githubusercontent.com/nevermore1258/Menu/master/auto-reboot.sh"
+wget -O 3 "https://raw.githubusercontent.com/nevermore1258/Menu/master/acc.sh"
+wget -O 4 "https://raw.githubusercontent.com/nevermore1258/Menu/master/online.sh"
+wget -O 5 "https://raw.githubusercontent.com/nevermore1258/Menu/master/restart.sh"
+wget -O 6 "https://raw.githubusercontent.com/nevermore1258/Menu/master/auto-reboot.sh"
+wget -O 7 "https://raw.githubusercontent.com/nevermore1258/Menu/master/speedtest.py"
+wget -O 8 "https://raw.githubusercontent.com/nevermore1258/Menu/master/info.sh"
 wget -O ban "https://raw.githubusercontent.com/nevermore1258/Menu/master/ban.sh"
 
 echo "0 0 * * * root /sbin/reboot" > /etc/cron.d/reboot
@@ -189,8 +173,7 @@ echo "OpenSSH  : 22, 143"  | tee -a log-install.txt
 echo "Dropbear : 80, 443"  | tee -a log-install.txt
 echo "Squid3   : 8080, 3128 (limit to IP SSH)"  | tee -a log-install.txt
 echo "OpenVPN  : TCP 1194 (client config : http://$MYIP:81/client.ovpn)"  | tee -a log-install.txt
-echo "Vnstat   : http://$MYIP:81/vnstat"
-echo "badvpn   : badvpn-udpgw port 7300"  | tee -a log-install.txt
+#echo "badvpn   : badvpn-udpgw port 7300"  | tee -a log-install.txt
 echo "nginx    : 81"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Script"  | tee -a log-install.txt
