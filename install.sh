@@ -135,18 +135,18 @@ wget -O ban "https://raw.githubusercontent.com/nevermore1258/Menu/master/ban.sh"
 echo "0 0 * * * root /sbin/reboot" > /etc/cron.d/reboot
 
 chmod +x menu
-chmod +x add
-chmod +x addmulti
-chmod +x trial
-chmod +x del
+chmod +x 1
+chmod +x 2
+chmod +x 3
+chmod +x 4
 chmod +x view
-chmod +x acc
-chmod +x restart
-chmod +x speedtest
-chmod +x info
-chmod +x about
-chmod +x online
-chmod +x auto-reboot
+chmod +x 5
+chmod +x 6
+chmod +x 7
+chmod +x 8
+#chmod +x about
+#chmod +x online
+#chmod +x auto-reboot
 chmod +x ban
 
 # finishing
