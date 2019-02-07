@@ -135,6 +135,7 @@ wget -O info "https://raw.githubusercontent.com/nevermore1258/Menu/master/info.s
 wget -O about "https://raw.githubusercontent.com/nevermore1258/Menu/master/about.sh"
 wget -O online "https://raw.githubusercontent.com/nevermore1258/Menu/master/online.sh"
 wget -O auto-reboot "https://raw.githubusercontent.com/nevermore1258/Menu/master/auto-reboot.sh"
+wget -O limit "https://raw.githubusercontent.com/nevermore1258/Menu/master/limit.sh"
 
 echo "0 0 * * * root /sbin/reboot" > /etc/cron.d/reboot
 
@@ -151,6 +152,7 @@ chmod +x info
 chmod +x about
 chmod +x online
 chmod +x auto-reboot
+chmod +x limit
 
 # finishing
 cd
