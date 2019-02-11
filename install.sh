@@ -121,29 +121,29 @@ service squid3 restart
 # download script
 cd /usr/bin
 wget -O menu "https://raw.githubusercontent.com/nevermore1258/Menu/master/menu.sh"
-wget -O 1 "https://raw.githubusercontent.com/nevermore1258/Menu/master/add.sh"
-wget -O 2 "https://raw.githubusercontent.com/nevermore1258/Menu/master/del.sh"
+wget -O 01 "https://raw.githubusercontent.com/nevermore1258/Menu/master/add.sh"
+wget -O 02 "https://raw.githubusercontent.com/nevermore1258/Menu/master/del.sh"
 wget -O view "https://raw.githubusercontent.com/nevermore1258/Menu/master/view.sh"
-wget -O 3 "https://raw.githubusercontent.com/nevermore1258/Menu/master/acc.sh"
-wget -O 4 "https://raw.githubusercontent.com/nevermore1258/Menu/master/online.sh"
-wget -O 5 "https://raw.githubusercontent.com/nevermore1258/Menu/master/restart.sh"
-wget -O 6 "https://raw.githubusercontent.com/nevermore1258/Menu/master/auto-reboot.sh"
-wget -O 7 "https://raw.githubusercontent.com/nevermore1258/Menu/master/speedtest.py"
-wget -O 8 "https://raw.githubusercontent.com/nevermore1258/Menu/master/info.sh"
+wget -O 03 "https://raw.githubusercontent.com/nevermore1258/Menu/master/acc.sh"
+wget -O 04 "https://raw.githubusercontent.com/nevermore1258/Menu/master/online.sh"
+wget -O 05 "https://raw.githubusercontent.com/nevermore1258/Menu/master/restart.sh"
+wget -O 06 "https://raw.githubusercontent.com/nevermore1258/Menu/master/auto-reboot.sh"
+wget -O 07 "https://raw.githubusercontent.com/nevermore1258/Menu/master/speedtest.py"
+wget -O 08 "https://raw.githubusercontent.com/nevermore1258/Menu/master/info.sh"
 wget -O ban "https://raw.githubusercontent.com/nevermore1258/Menu/master/ban.sh"
 
 echo "0 0 * * * root /sbin/reboot" > /etc/cron.d/reboot
 
 chmod +x menu
-chmod +x 1
-chmod +x 2
-chmod +x 3
-chmod +x 4
+chmod +x 01
+chmod +x 02
+chmod +x 03
+chmod +x 04
 chmod +x view
-chmod +x 5
-chmod +x 6
-chmod +x 7
-chmod +x 8
+chmod +x 05
+chmod +x 06
+chmod +x 07
+chmod +x 08
 #chmod +x about
 #chmod +x online
 #chmod +x auto-reboot
